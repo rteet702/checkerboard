@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 style="background-color: {{ clr1 }}; color: {{ clr2 }};">*** Checkerboard ***</h1>
+        <div class="checkerboard">
+
+            {% for row in range(0, rows):%}
+
+                <div class="row">
+
+                    {% for col in range(0, cols):%}
+                        {% if (col + row)%2 == 0%}
+
+                            <div class="box" style="background-color: {{ clr1 }};"></div>
+
+                        {% else: %}
+
+                            <div class="box" style="background-color: {{ clr2 }};"></div>
+
+                        {% endif %}
+                    {% endfor %}
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+</body>
+</html>
